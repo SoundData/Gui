@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/background.png</file>
+        <file>images/background-small.png</file>
+        <file>images/background-1200-674.png</file>
+        <file>images/background-music-1200-750.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>changeScreenState.qml</file>
+    </qresource>
+</RCC>
