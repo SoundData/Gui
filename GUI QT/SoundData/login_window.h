@@ -18,6 +18,7 @@ public:
     //shows
     //Login_window *login_window;
     ~Login_window();
+  QString serverIP, steamID;
 
 private slots:
     void on_pushButton_clicked();

@@ -1,6 +1,7 @@
 #include "login_window.h"
 #include "ui_login_window.h"
 #include "main_screen.h"
+#include <QProcess>
 Login_window::Login_window(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Login_window)
@@ -21,36 +22,18 @@ void Login_window::on_pushButton_clicked()
     //login_window.h
     main_window = new Main_screen;// creates an instance of main screen
     main_window->show(); //shows the main screen
+
+    serverIP = "tcp://" + ui->lineEdit->text() + ":7633";
+    steamID = ui->lineEdit_2->text();
+
+    QStringList arguments;
+    arguments << serverIP;
+
+    QString program = "C:\\Users\\Stacy\\Documents\\GitHub\\EventProcessor\\Debug\\EventProcessor.exe";
+
+    QProcess *myProcess = new QProcess(this);
+    myProcess->start(program, arguments);
+
     deleteLater(); //deletes original login_window
 
-    /*
-     * This is a post about opening a new window and closing the other one.
-     * Will work for now, may have to change later when arguments have to be
-     * passed from the connect button to the other window/code.
-
-You need to:
-
-    Instantiate the new window and show it.
-
-    Delete the current window once the control returns to the event loop.
-
-    void MainWindow::on_button_clicked() {
-      auto win = new MainWindow();
-      win->setAttribute( Qt::WA_DeleteOnClose );
-      win->show();
-      deleteLater();
-    }
-
-    Make sure that the initial instance of the window is created on the heap:
-
-    int main(int argc, char** argv) {
-      QApplication app(argc, argv);
-      auto win = new MainWindow;
-      win->setAttribute( Qt::WA_DeleteOnClose );
-      win->show();
-      return app.exec();
-    }
-
-
-     * */
 }

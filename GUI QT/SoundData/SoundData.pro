@@ -21,3 +21,6 @@ HEADERS  += login_window.h \
 
 FORMS    += login_window.ui \
     main_screen.ui
+
+RESOURCES += \
+    resources.qrc
