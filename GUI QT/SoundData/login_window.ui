@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>419</height>
+    <width>667</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -39,7 +39,9 @@
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 10px;
 	min-width: 450px;
+	max-width: 450px; 
   	min-height: 200px; 
+	max-height: 200px; 
 }
 
 QLineEdit
@@ -89,7 +91,15 @@ QLabel
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0">
+    <item row="0" column="0">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <zorder>logInFrame</zorder>
+     </widget>
+    </item>
+    <item row="1" column="0" alignment="Qt::AlignHCenter">
      <widget class="QFrame" name="logInFrame">
       <property name="minimumSize">
        <size>
@@ -99,9 +109,12 @@ QLabel
       </property>
       <property name="maximumSize">
        <size>
-        <width>640</width>
-        <height>360</height>
+        <width>450</width>
+        <height>200</height>
        </size>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -112,7 +125,10 @@ QLabel
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
        <item>
         <layout class="QFormLayout" name="formLayout">
          <item row="0" column="0">
@@ -146,9 +162,6 @@ QLabel
        </item>
       </layout>
      </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QWidget" name="widget" native="true"/>
     </item>
    </layout>
   </widget>

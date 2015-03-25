@@ -23,4 +23,5 @@ FORMS    += login_window.ui \
     main_screen.ui
 
 RESOURCES += \
+    resource.qrc \
     resources.qrc
