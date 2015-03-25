@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>Main_screen</class>
  <widget class="QMainWindow" name="Main_screen">
   <property name="geometry">
@@ -9,16 +7,471 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>527</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="styleSheet">
+   <string notr="true">#Main_screen
+{
+	background-image: url(:/images/images/splash.jpg);
+	min-height: 527px; 
+	max-height: 600px; 
+	min-width: 800px; 
+	max-width: 900px; 
+}
+#widget
+{
+	image: url(:/images/images/title_game.png);
+}
+
+QFormLayout
+{
+	background-color: transparent; 
+}
+#widget_3
+{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#widget_4
+{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#label_6
+{
+	font-weight: bold; 
+	padding: 10px 0; 
+	text-align: center; 
+	margin: 0 auto; 
+}
+
+#label_9
+{
+	font-weight: bold; 
+}
+
+QComboBox
+{
+	padding: 3px; 
+}
+
+#label_5
+{
+	font-weight: bold; 
+}
+
+#widget_2
+{
+	border-style: solid;
+	border: 2px solid white;
+	border-radius: 8px;
+	background-color: #39475F; 
+}
+
+QLabel
+{
+	font-size: 15px; 
+	padding: 10px; 
+}
+ QTabWidget QWidget
+{
+	border-top-left-radius: 20px;
+	border-top-right-radius:20px;
+	border-radius: 20px; 
+	color: white; 
+    background-color:  #455774;
+}
+
+
+QTabWidget::pane 
+{
+	border-radius: 4px;
+}
+
+
+  QTabWidget::tab-bar 
+{          
+	left: 15px; /* move to the right by 5px */
+   bottom: 0px; 
+   background-color: red; /* nothing happens*/
+ } 
+
+QTabBar::tab 
+{ 
+   background: rgba(255, 255, 255, 0);
+   padding: 3px;
+   color:#FEFEFE;
+  font-size: 13px;
+width: 95px; 
+
+ }
+       
+QTabBar::tab:hover {
+  background: #D1D5DC; 
+	color: #455774; 
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+
+QTabBar::tab:selected{
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,                                      stop: 0 #fafafa, stop: 0.4 #f4f4f4,                                      stop: 0.5 #e7e7e7, stop: 1.0 #fafafa); 
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+   color:#2A2A2A;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>60</y>
+      <width>311</width>
+      <height>331</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>General Settings</string>
+     </attribute>
+     <widget class="QWidget" name="widget_3" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>271</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>150</y>
+         <width>56</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Map</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>106</y>
+         <width>91</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Steam ID</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>62</y>
+         <width>89</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Server IP</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>18</y>
+         <width>249</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Game Information</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Customization</string>
+     </attribute>
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>271</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>20</y>
+         <width>124</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Sounds</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>108</y>
+         <width>72</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Events</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>64</y>
+         <width>67</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Death</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>20</y>
+         <width>79</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Events</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>152</y>
+         <width>43</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; </string>
+       </property>
+       <property name="text">
+        <string>Kill</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_3">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>152</y>
+         <width>124</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 8px; </string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Sound 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sound 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sound 3</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_2">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>108</y>
+         <width>124</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 8px; </string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Sound 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sound 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sound 3</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>64</y>
+         <width>124</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 8px; </string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Sound 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sound 2</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>196</y>
+         <width>84</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">	color: gray;
+background-color: qlineargradient(spread:repeat, x1:1, y1:1, x2:1, y2:0, stop:0.551136 rgba(217, 224, 234, 255), stop:1 rgba(255, 255, 255, 255));
+	border-width: 1px;
+	border-color: #d9e0ea;
+	border-style: solid;
+	border-radius: 7px;
+	padding: 5px;
+	font-size: 15px;
+	padding-left: 5px;
+	padding-right: 5px;
+	min-width: 72px;
+	max-width: 72px; 
+	min-height: 17px;
+	max-height: 17px;</string>
+       </property>
+       <property name="text">
+        <string>Submit</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>420</y>
+      <width>221</width>
+      <height>61</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>391</width>
+      <height>371</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLogout">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionLogout"/>
+   </widget>
+   <addaction name="menuLogout"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>

@@ -12,3 +12,9 @@ Main_screen::~Main_screen()
 {
     delete ui;
 }
+
+
+void Main_screen::on_pushButton_clicked()
+{
+    //send information to the music algorithm
+}

@@ -31,8 +31,8 @@ void Login_window::on_pushButton_clicked()
 
     QString program = "C:\\Users\\Stacy\\Documents\\GitHub\\EventProcessor\\Debug\\EventProcessor.exe";
 
-    QProcess *myProcess = new QProcess(this);
-    myProcess->start(program, arguments);
+    //QProcess *myProcess = new QProcess(this);
+    //myProcess->start(program, arguments);
 
     deleteLater(); //deletes original login_window
 

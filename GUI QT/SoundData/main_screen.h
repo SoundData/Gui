@@ -15,8 +15,12 @@ public:
     explicit Main_screen(QWidget *parent = 0);
     ~Main_screen();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Main_screen *ui;
 };
+
 
 #endif // MAIN_SCREEN_H

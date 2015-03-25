@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "main_screen.h"
+
 namespace Ui {
 class Login_window;
 }

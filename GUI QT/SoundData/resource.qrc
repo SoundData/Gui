@@ -2,5 +2,7 @@
     <qresource prefix="/images">
         <file>images/background-music-1200-750.png</file>
         <file>images/title_game.png</file>
+        <file>images/music.jpg</file>
+        <file>images/splash.jpg</file>
     </qresource>
 </RCC>
