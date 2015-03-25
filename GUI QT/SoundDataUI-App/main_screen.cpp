@@ -17,10 +17,15 @@ void Main_screen::on_pushButton_clicked()
 {
     //include the header file for the second dialog
     //before you can connect the two
-    Screen2 second;
+
+
+    Screen2 second(this, ui->lineEdit_2->text());
     second.setModal(true);//modal approach
     //there is also a modalless approach
     second.exec();//will show the dialog
+
+
+
     //^
     //|
     /*do build-clean all; then build- run qmake otherwise u get errors*/
