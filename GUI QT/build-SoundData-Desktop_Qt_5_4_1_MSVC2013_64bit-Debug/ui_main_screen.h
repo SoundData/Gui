@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -31,6 +32,8 @@ class Ui_Main_screen
 public:
     QAction *actionLogout;
     QWidget *centralwidget;
+    QGridLayout *gridLayout_2;
+    QGridLayout *gridLayout;
     QTabWidget *tabWidget;
     QWidget *tab;
     QWidget *widget_3;
@@ -38,6 +41,9 @@ public:
     QLabel *label;
     QLabel *label_2;
     QLabel *label_6;
+    QLabel *server_ip;
+    QLabel *steam_id;
+    QLabel *map;
     QWidget *tab_2;
     QWidget *widget_4;
     QLabel *label_5;
@@ -49,8 +55,8 @@ public:
     QComboBox *comboBox_2;
     QComboBox *comboBox;
     QPushButton *pushButton;
-    QWidget *widget;
     QWidget *widget_2;
+    QWidget *widget;
     QMenuBar *menubar;
     QMenu *menuLogout;
     QStatusBar *statusbar;
@@ -176,9 +182,14 @@ public:
         actionLogout->setObjectName(QStringLiteral("actionLogout"));
         centralwidget = new QWidget(Main_screen);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        gridLayout_2 = new QGridLayout(centralwidget);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(460, 60, 311, 331));
+        tabWidget->setMinimumSize(QSize(300, 325));
+        tabWidget->setMaximumSize(QSize(310, 325));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         widget_3 = new QWidget(tab);
@@ -202,6 +213,18 @@ public:
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(10, 18, 249, 38));
         label_6->setStyleSheet(QStringLiteral("background-color: transparent; "));
+        server_ip = new QLabel(widget_3);
+        server_ip->setObjectName(QStringLiteral("server_ip"));
+        server_ip->setGeometry(QRect(120, 60, 151, 41));
+        server_ip->setStyleSheet(QStringLiteral("background-color: transparent; "));
+        steam_id = new QLabel(widget_3);
+        steam_id->setObjectName(QStringLiteral("steam_id"));
+        steam_id->setGeometry(QRect(120, 100, 141, 41));
+        steam_id->setStyleSheet(QStringLiteral("background-color: transparent; "));
+        map = new QLabel(widget_3);
+        map->setObjectName(QStringLiteral("map"));
+        map->setGeometry(QRect(120, 140, 91, 41));
+        map->setStyleSheet(QStringLiteral("background-color: transparent; "));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
@@ -258,12 +281,25 @@ public:
 "	min-height: 17px;\n"
 "	max-height: 17px;"));
         tabWidget->addTab(tab_2, QString());
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(550, 420, 221, 61));
+
+        gridLayout->addWidget(tabWidget, 0, 2, 1, 1);
+
         widget_2 = new QWidget(centralwidget);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(40, 30, 391, 371));
+        widget_2->setMinimumSize(QSize(375, 400));
+        tabWidget->raise();
+        tabWidget->raise();
+
+        gridLayout->addWidget(widget_2, 0, 0, 1, 2, Qt::AlignHCenter|Qt::AlignVCenter);
+
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QStringLiteral("widget"));
+
+        gridLayout->addWidget(widget, 1, 1, 1, 1);
+
+
+        gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
+
         Main_screen->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Main_screen);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -280,7 +316,7 @@ public:
 
         retranslateUi(Main_screen);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Main_screen);
@@ -290,10 +326,13 @@ public:
     {
         Main_screen->setWindowTitle(QApplication::translate("Main_screen", "MainWindow", 0));
         actionLogout->setText(QApplication::translate("Main_screen", "Logout", 0));
-        label_3->setText(QApplication::translate("Main_screen", "Map", 0));
-        label->setText(QApplication::translate("Main_screen", "Steam ID", 0));
-        label_2->setText(QApplication::translate("Main_screen", "Server IP", 0));
+        label_3->setText(QApplication::translate("Main_screen", "Map:", 0));
+        label->setText(QApplication::translate("Main_screen", "Steam ID:", 0));
+        label_2->setText(QApplication::translate("Main_screen", "Server IP:", 0));
         label_6->setText(QApplication::translate("Main_screen", "Game Information", 0));
+        server_ip->setText(QApplication::translate("Main_screen", "TextLabel", 0));
+        steam_id->setText(QApplication::translate("Main_screen", "TextLabel", 0));
+        map->setText(QApplication::translate("Main_screen", "Undefined", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Main_screen", "General Settings", 0));
         label_5->setText(QApplication::translate("Main_screen", "Sounds", 0));
         label_4->setText(QApplication::translate("Main_screen", "Events", 0));

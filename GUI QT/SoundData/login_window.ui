@@ -13,7 +13,7 @@
   <property name="minimumSize">
    <size>
     <width>550</width>
-    <height>270</height>
+    <height>400</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -33,6 +33,7 @@
     height: 720px;
 	min-width: 550px; 
 }
+
 
 #logInFrame 
 {
@@ -75,11 +76,15 @@ QPushButton
 QLabel 
 {
 	font-weight: bold;
-	padding: 20px 30px;
-	font-size:19px;
+	padding: 15px 15px;
+	font-size:15px;
 	color:white; 
 }
 
+#label_3
+{
+	font-size:14px; 
+}
 #widget
 {
 	image: url(:/images/images/title_game.png);
@@ -96,21 +101,20 @@ QLabel
       <property name="layoutDirection">
        <enum>Qt::LeftToRight</enum>
       </property>
-      <zorder>logInFrame</zorder>
      </widget>
     </item>
-    <item row="1" column="0" alignment="Qt::AlignHCenter">
+    <item row="2" column="0" alignment="Qt::AlignHCenter">
      <widget class="QFrame" name="logInFrame">
       <property name="minimumSize">
        <size>
         <width>450</width>
-        <height>200</height>
+        <height>220</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>450</width>
-        <height>200</height>
+        <height>225</height>
        </size>
       </property>
       <property name="layoutDirection">
@@ -151,7 +155,17 @@ QLabel
          <item row="1" column="1">
           <widget class="QLineEdit" name="lineEdit_2"/>
          </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>EventProcessor Executable</string>
+           </property>
+          </widget>
+         </item>
          <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_3"/>
+         </item>
+         <item row="3" column="1">
           <widget class="QPushButton" name="pushButton">
            <property name="text">
             <string>Connect</string>

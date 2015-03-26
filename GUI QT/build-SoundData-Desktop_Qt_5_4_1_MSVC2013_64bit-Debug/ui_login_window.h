@@ -40,6 +40,8 @@ public:
     QLineEdit *lineEdit;
     QLabel *label_2;
     QLineEdit *lineEdit_2;
+    QLabel *label_3;
+    QLineEdit *lineEdit_3;
     QPushButton *pushButton;
     QStatusBar *statusBar;
 
@@ -48,7 +50,7 @@ public:
         if (Login_window->objectName().isEmpty())
             Login_window->setObjectName(QStringLiteral("Login_window"));
         Login_window->resize(667, 451);
-        Login_window->setMinimumSize(QSize(550, 270));
+        Login_window->setMinimumSize(QSize(550, 400));
         Login_window->setMaximumSize(QSize(1200, 674));
         Login_window->setStyleSheet(QLatin1String("#Login_window \n"
 "{\n"
@@ -57,6 +59,7 @@ public:
 "    height: 720px;\n"
 "	min-width: 550px; \n"
 "}\n"
+"\n"
 "\n"
 "#logInFrame \n"
 "{\n"
@@ -93,18 +96,22 @@ public:
 "	min-width: 72px;\n"
 "	max-width: 72px; \n"
 "	min-height: 17px;\n"
-"	max-height: 17px;\n"
-""
-                        "}\n"
+"	max-height: 17"
+                        "px;\n"
+"}\n"
 "\n"
 "QLabel \n"
 "{\n"
 "	font-weight: bold;\n"
-"	padding: 20px 30px;\n"
-"	font-size:19px;\n"
+"	padding: 15px 15px;\n"
+"	font-size:15px;\n"
 "	color:white; \n"
 "}\n"
 "\n"
+"#label_3\n"
+"{\n"
+"	font-size:14px; \n"
+"}\n"
 "#widget\n"
 "{\n"
 "	image: url(:/images/images/title_game.png);\n"
@@ -127,8 +134,8 @@ public:
 
         logInFrame = new QFrame(centralWidget);
         logInFrame->setObjectName(QStringLiteral("logInFrame"));
-        logInFrame->setMinimumSize(QSize(450, 200));
-        logInFrame->setMaximumSize(QSize(450, 200));
+        logInFrame->setMinimumSize(QSize(450, 220));
+        logInFrame->setMaximumSize(QSize(450, 225));
         logInFrame->setLayoutDirection(Qt::LeftToRight);
         logInFrame->setStyleSheet(QStringLiteral(""));
         logInFrame->setFrameShape(QFrame::StyledPanel);
@@ -161,16 +168,26 @@ public:
 
         formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
 
+        label_3 = new QLabel(logInFrame);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_3);
+
+        lineEdit_3 = new QLineEdit(logInFrame);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_3);
+
         pushButton = new QPushButton(logInFrame);
         pushButton->setObjectName(QStringLiteral("pushButton"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, pushButton);
+        formLayout->setWidget(3, QFormLayout::FieldRole, pushButton);
 
 
         horizontalLayout->addLayout(formLayout);
 
 
-        gridLayout->addWidget(logInFrame, 1, 0, 1, 1, Qt::AlignHCenter);
+        gridLayout->addWidget(logInFrame, 2, 0, 1, 1, Qt::AlignHCenter);
 
         Login_window->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(Login_window);
@@ -187,6 +204,7 @@ public:
         Login_window->setWindowTitle(QApplication::translate("Login_window", "Login_window", 0));
         label->setText(QApplication::translate("Login_window", "Steam ID", 0));
         label_2->setText(QApplication::translate("Login_window", "Server IP", 0));
+        label_3->setText(QApplication::translate("Login_window", "EventProcessor Executable", 0));
         pushButton->setText(QApplication::translate("Login_window", "Connect", 0));
     } // retranslateUi
 

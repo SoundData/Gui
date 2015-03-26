@@ -16,10 +16,8 @@ public:
     explicit Login_window(QWidget *parent = 0);
     Main_screen *main_window;//Main_screen instance on heap
     //This allows for the window to stay open after it first
-    //shows
-    //Login_window *login_window;
     ~Login_window();
-  QString serverIP, steamID;
+    QString serverIP, steamID, qs;
 
 private slots:
     void on_pushButton_clicked();

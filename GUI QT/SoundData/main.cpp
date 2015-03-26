@@ -4,6 +4,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    //Instantiating the forms
     //This dynamically allocates the window on the heap
     Login_window *login;
     login = new Login_window;

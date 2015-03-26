@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Main_screen_t {
-    QByteArrayData data[3];
-    char stringdata[35];
+    QByteArrayData data[8];
+    char stringdata[92];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,11 +30,18 @@ struct qt_meta_stringdata_Main_screen_t {
 static const qt_meta_stringdata_Main_screen_t qt_meta_stringdata_Main_screen = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "Main_screen"
-QT_MOC_LITERAL(1, 12, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(2, 34, 0) // ""
+QT_MOC_LITERAL(1, 12, 10), // "changeText"
+QT_MOC_LITERAL(2, 23, 0), // ""
+QT_MOC_LITERAL(3, 24, 8), // "QString&"
+QT_MOC_LITERAL(4, 33, 4), // "text"
+QT_MOC_LITERAL(5, 38, 5), // "text2"
+QT_MOC_LITERAL(6, 44, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(7, 66, 25) // "on_actionLogout_triggered"
 
     },
-    "Main_screen\0on_pushButton_clicked\0"
+    "Main_screen\0changeText\0\0QString&\0text\0"
+    "text2\0on_pushButton_clicked\0"
+    "on_actionLogout_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -44,7 +51,7 @@ static const uint qt_meta_data_Main_screen[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -52,9 +59,13 @@ static const uint qt_meta_data_Main_screen[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    2,   29,    2, 0x0a /* Public */,
+       6,    0,   34,    2, 0x08 /* Private */,
+       7,    0,   35,    2, 0x08 /* Private */,
 
  // slots: parameters
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    4,    5,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -65,11 +76,12 @@ void Main_screen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     if (_c == QMetaObject::InvokeMetaMethod) {
         Main_screen *_t = static_cast<Main_screen *>(_o);
         switch (_id) {
-        case 0: _t->on_pushButton_clicked(); break;
+        case 0: _t->changeText((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 1: _t->on_pushButton_clicked(); break;
+        case 2: _t->on_actionLogout_triggered(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject Main_screen::staticMetaObject = {
@@ -97,13 +109,13 @@ int Main_screen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }

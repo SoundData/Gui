@@ -2,6 +2,9 @@
 #include "ui_login_window.h"
 #include "main_screen.h"
 #include <QProcess>
+#include <QtDebug>
+#include <QLineEdit>
+
 Login_window::Login_window(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Login_window)
@@ -14,26 +17,40 @@ Login_window::~Login_window()
     delete ui;
 }
 
+
 void Login_window::on_pushButton_clicked()
 {
     //include the header file for the main_screen
     //before you can connect the two
     //main_window is declared(not initialized) inside
     //login_window.h
-    main_window = new Main_screen;// creates an instance of main screen
-    main_window->show(); //shows the main screen
+    QString temp = ui->lineEdit_2->text();
+    serverIP = "tcp://" + temp + ":7633";
+    steamID = ui->lineEdit->text();
+    qs = ui->lineEdit_3->text();
 
-    serverIP = "tcp://" + ui->lineEdit->text() + ":7633";
-    steamID = ui->lineEdit_2->text();
+    if(steamID.isEmpty() || temp.isEmpty() || qs.isEmpty())
+    {
+        //should not go to next screen
+    }
+    else
+    {
+        main_window = new Main_screen;// creates an instance of main screen
+        main_window->changeText(temp, steamID);
 
-    QStringList arguments;
-    arguments << serverIP;
+        QStringList args;
+        args << serverIP;
 
-    QString program = "C:\\Users\\Stacy\\Documents\\GitHub\\EventProcessor\\Debug\\EventProcessor.exe";
+        QProcess *qp = new QProcess(this);
 
-    //QProcess *myProcess = new QProcess(this);
-    //myProcess->start(program, arguments);
+        //Print what we are connecting to
+        qDebug() << "Addr: " << args.at(0) << "Command: " << qs;
 
-    deleteLater(); //deletes original login_window
+        //Launch the process
+        qp->startDetached(qs, args);
+
+        main_window->show(); //shows the main screen
+        deleteLater(); //deletes original login_window
+    }
 
 }
