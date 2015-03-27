@@ -108,13 +108,13 @@ QLabel
       <property name="minimumSize">
        <size>
         <width>450</width>
-        <height>220</height>
+        <height>200</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>450</width>
-        <height>225</height>
+        <height>200</height>
        </size>
       </property>
       <property name="layoutDirection">
@@ -153,7 +153,14 @@ QLabel
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit_2"/>
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="text">
+            <string>104.236.52.206</string>
+           </property>
+           <property name="placeholderText">
+            <string>104.236.52.206</string>
+           </property>
+          </widget>
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label_3">
@@ -163,7 +170,14 @@ QLabel
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="lineEdit_3"/>
+          <widget class="QLineEdit" name="lineEdit_3">
+           <property name="text">
+            <string>EventProcessor.exe</string>
+           </property>
+           <property name="placeholderText">
+            <string>EventProcessor.exe</string>
+           </property>
+          </widget>
          </item>
          <item row="3" column="1">
           <widget class="QPushButton" name="pushButton">

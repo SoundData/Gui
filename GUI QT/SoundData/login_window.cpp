@@ -35,19 +35,10 @@ void Login_window::on_pushButton_clicked()
     }
     else
     {
-        main_window = new Main_screen;// creates an instance of main screen
+
+        main_window = new Main_screen(NULL, qs, serverIP);// creates an instance of main screen
         main_window->changeText(temp, steamID);
-
-        QStringList args;
-        args << serverIP;
-
-        QProcess *qp = new QProcess(this);
-
-        //Print what we are connecting to
-        qDebug() << "Addr: " << args.at(0) << "Command: " << qs;
-
-        //Launch the process
-        qp->startDetached(qs, args);
+        main_window->setAttribute(Qt::WA_DeleteOnClose);
 
         main_window->show(); //shows the main screen
         deleteLater(); //deletes original login_window
