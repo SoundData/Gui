@@ -143,6 +143,9 @@ QTabBar::tab:selected{
           <height>325</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="currentIndex">
          <number>0</number>
         </property>
@@ -159,123 +162,175 @@ QTabBar::tab:selected{
             <height>261</height>
            </rect>
           </property>
-          <widget class="QLabel" name="label_3">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>150</y>
-             <width>56</width>
-             <height>38</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: transparent; </string>
-           </property>
-           <property name="text">
-            <string>Map:</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>106</y>
-             <width>91</width>
-             <height>38</height>
-            </rect>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: transparent; </string>
-           </property>
-           <property name="text">
-            <string>Steam ID:</string>
-           </property>
-           <property name="textFormat">
-            <enum>Qt::AutoText</enum>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_2">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>62</y>
-             <width>89</width>
-             <height>38</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: transparent; </string>
-           </property>
-           <property name="text">
-            <string>Server IP:</string>
-           </property>
-          </widget>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <widget class="QLabel" name="label_6">
            <property name="geometry">
             <rect>
-             <x>10</x>
-             <y>18</y>
-             <width>249</width>
-             <height>38</height>
+             <x>30</x>
+             <y>-10</y>
+             <width>211</width>
+             <height>41</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: transparent; </string>
+            <string notr="true">background:transparent;</string>
            </property>
            <property name="text">
             <string>Game Information</string>
            </property>
           </widget>
-          <widget class="QLabel" name="server_ip">
+          <widget class="QWidget" name="gridLayoutWidget">
            <property name="geometry">
             <rect>
-             <x>120</x>
-             <y>60</y>
-             <width>151</width>
-             <height>41</height>
+             <x>6</x>
+             <y>24</y>
+             <width>261</width>
+             <height>231</height>
             </rect>
            </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: transparent; </string>
-           </property>
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="steam_id">
-           <property name="geometry">
-            <rect>
-             <x>120</x>
-             <y>100</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: transparent; </string>
-           </property>
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="map">
-           <property name="geometry">
-            <rect>
-             <x>120</x>
-             <y>140</y>
-             <width>91</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: transparent; </string>
-           </property>
-           <property name="text">
-            <string>Undefined</string>
-           </property>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="6" column="1">
+             <widget class="QLabel" name="label_15">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Class</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="2">
+             <widget class="QLabel" name="label_class">
+              <property name="styleSheet">
+               <string notr="true">background-color:transparent;</string>
+              </property>
+              <property name="text">
+               <string>[Disconnected]</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="label">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Server IP</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLabel" name="label_server_ip">
+              <property name="styleSheet">
+               <string notr="true">background-color:transparent;</string>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="label_11">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Steam ID</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="label_13">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Team</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2">
+             <widget class="QLabel" name="label_team">
+              <property name="styleSheet">
+               <string notr="true">background-color:transparent;</string>
+              </property>
+              <property name="text">
+               <string>[Disconnected]</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QLabel" name="label_steam_id">
+              <property name="styleSheet">
+               <string notr="true">background-color:transparent;</string>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="label_10">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Map</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QLabel" name="label_map">
+              <property name="styleSheet">
+               <string notr="true">background-color:transparent;</string>
+              </property>
+              <property name="text">
+               <string>[Disconnected]</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </widget>

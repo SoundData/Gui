@@ -65,8 +65,8 @@ void Main_screen::processOutput()
 
 void Main_screen::changeText(QString &text, QString &text2)
 {
-    ui->server_ip->setText(text);
-    ui->steam_id->setText(text2);
+    ui->label_server_ip->setText(text);
+    ui->label_steam_id->setText(text2);
 }
 
 void Main_screen::on_pushButton_clicked()
