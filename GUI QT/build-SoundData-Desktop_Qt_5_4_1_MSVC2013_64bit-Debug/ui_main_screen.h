@@ -13,16 +13,14 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -34,29 +32,25 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
-    QTabWidget *tabWidget;
-    QWidget *tab;
-    QWidget *widget_3;
-    QLabel *label_3;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_6;
-    QLabel *server_ip;
-    QLabel *steam_id;
-    QLabel *map;
-    QWidget *tab_2;
-    QWidget *widget_4;
-    QLabel *label_5;
-    QLabel *label_4;
-    QLabel *label_8;
-    QLabel *label_9;
-    QLabel *label_7;
-    QComboBox *comboBox_3;
-    QComboBox *comboBox_2;
-    QComboBox *comboBox;
-    QPushButton *pushButton;
     QWidget *widget_2;
+    QPlainTextEdit *plainTextEdit_EvProcOutput;
     QWidget *widget;
+    QWidget *widget_4;
+    QWidget *widget_3;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout_3;
+    QLabel *label_15;
+    QLabel *label_class;
+    QLabel *label_server_ip;
+    QLabel *label;
+    QLabel *label_team;
+    QLabel *label_13;
+    QLabel *label_11;
+    QLabel *label_map;
+    QLabel *label_steam_id;
+    QLabel *label_10;
+    QWidget *widget_5;
+    QLabel *label_6;
     QMenuBar *menubar;
     QMenu *menuLogout;
     QStatusBar *statusbar;
@@ -88,17 +82,12 @@ public:
 "	background-color: rgba(0, 0, 0, 0.5);\n"
 "}\n"
 "\n"
-"#widget_4\n"
-"{\n"
-"	background-color: rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
 "#label_6\n"
 "{\n"
 "	font-weight: bold; \n"
-"	padding: 10px 0; \n"
+"	padding: 10px 0 !important; \n"
 "	text-align: center; \n"
-"	margin: 0 auto; \n"
+"	margin: 2em auto !important; \n"
 "}\n"
 "\n"
 "#label_9\n"
@@ -131,10 +120,10 @@ public:
 "}\n"
 " QTabWidget QWidget\n"
 "{\n"
-"	border-top-left-radiu"
-                        "s: 20px;\n"
+"	border-top-left-radius: 20px;\n"
 "	border-top-right-radius:20px;\n"
-"	border-radius: 20px; \n"
+"	b"
+                        "order-radius: 20px; \n"
 "	color: white; \n"
 "    background-color:  #455774;\n"
 "}\n"
@@ -174,8 +163,7 @@ public:
 "QTabBar::tab:selected{\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,                                      stop: 0 #fafafa, stop: 0.4 #f4f4f4,                                      stop: 0.5 #e7e7e7, stop: 1.0 #fafafa); \n"
 "	border-top-left-radius: 4px;\n"
-"	border-top-right-radi"
-                        "us: 4px;\n"
+"	border-top-right-radius: 4px;\n"
 "   color:#2A2A2A;\n"
 "}"));
         actionLogout = new QAction(Main_screen);
@@ -186,109 +174,18 @@ public:
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        tabWidget = new QTabWidget(centralwidget);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setMinimumSize(QSize(300, 325));
-        tabWidget->setMaximumSize(QSize(310, 325));
-        tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
-        widget_3 = new QWidget(tab);
-        widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(20, 20, 271, 261));
-        label_3 = new QLabel(widget_3);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(10, 150, 56, 38));
-        label_3->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        label = new QLabel(widget_3);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 106, 91, 38));
-        label->setAutoFillBackground(false);
-        label->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        label->setTextFormat(Qt::AutoText);
-        label_2 = new QLabel(widget_3);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 62, 89, 38));
-        label_2->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        label_6 = new QLabel(widget_3);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(10, 18, 249, 38));
-        label_6->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        server_ip = new QLabel(widget_3);
-        server_ip->setObjectName(QStringLiteral("server_ip"));
-        server_ip->setGeometry(QRect(120, 60, 151, 41));
-        server_ip->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        steam_id = new QLabel(widget_3);
-        steam_id->setObjectName(QStringLiteral("steam_id"));
-        steam_id->setGeometry(QRect(120, 100, 141, 41));
-        steam_id->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        map = new QLabel(widget_3);
-        map->setObjectName(QStringLiteral("map"));
-        map->setGeometry(QRect(120, 140, 91, 41));
-        map->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QStringLiteral("tab_2"));
-        widget_4 = new QWidget(tab_2);
-        widget_4->setObjectName(QStringLiteral("widget_4"));
-        widget_4->setGeometry(QRect(20, 20, 271, 261));
-        label_5 = new QLabel(widget_4);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(110, 20, 124, 38));
-        label_5->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        label_4 = new QLabel(widget_4);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(25, 108, 72, 38));
-        label_4->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        label_8 = new QLabel(widget_4);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(25, 64, 67, 38));
-        label_8->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        label_9 = new QLabel(widget_4);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(25, 20, 79, 38));
-        label_9->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        label_7 = new QLabel(widget_4);
-        label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(25, 152, 43, 38));
-        label_7->setStyleSheet(QStringLiteral("background-color: transparent; "));
-        comboBox_3 = new QComboBox(widget_4);
-        comboBox_3->setObjectName(QStringLiteral("comboBox_3"));
-        comboBox_3->setGeometry(QRect(110, 152, 124, 24));
-        comboBox_3->setStyleSheet(QStringLiteral("border-radius: 8px; "));
-        comboBox_2 = new QComboBox(widget_4);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setGeometry(QRect(110, 108, 124, 24));
-        comboBox_2->setStyleSheet(QStringLiteral("border-radius: 8px; "));
-        comboBox = new QComboBox(widget_4);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(110, 64, 124, 24));
-        comboBox->setStyleSheet(QStringLiteral("border-radius: 8px; "));
-        pushButton = new QPushButton(widget_4);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(110, 196, 84, 29));
-        pushButton->setStyleSheet(QLatin1String("	color: gray;\n"
-"background-color: qlineargradient(spread:repeat, x1:1, y1:1, x2:1, y2:0, stop:0.551136 rgba(217, 224, 234, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	border-width: 1px;\n"
-"	border-color: #d9e0ea;\n"
-"	border-style: solid;\n"
-"	border-radius: 7px;\n"
-"	padding: 5px;\n"
-"	font-size: 15px;\n"
-"	padding-left: 5px;\n"
-"	padding-right: 5px;\n"
-"	min-width: 72px;\n"
-"	max-width: 72px; \n"
-"	min-height: 17px;\n"
-"	max-height: 17px;"));
-        tabWidget->addTab(tab_2, QString());
-
-        gridLayout->addWidget(tabWidget, 0, 2, 1, 1);
-
         widget_2 = new QWidget(centralwidget);
         widget_2->setObjectName(QStringLiteral("widget_2"));
         widget_2->setMinimumSize(QSize(375, 400));
-        tabWidget->raise();
-        tabWidget->raise();
+        plainTextEdit_EvProcOutput = new QPlainTextEdit(widget_2);
+        plainTextEdit_EvProcOutput->setObjectName(QStringLiteral("plainTextEdit_EvProcOutput"));
+        plainTextEdit_EvProcOutput->setGeometry(QRect(10, 10, 351, 381));
+        plainTextEdit_EvProcOutput->setAutoFillBackground(false);
+        plainTextEdit_EvProcOutput->setStyleSheet(QLatin1String("background-color: transparent;\n"
+"color: white;\n"
+"border: 0px;"));
+        plainTextEdit_EvProcOutput->setReadOnly(true);
+        plainTextEdit_EvProcOutput->setPlainText(QStringLiteral(""));
 
         gridLayout->addWidget(widget_2, 0, 0, 1, 2, Qt::AlignHCenter|Qt::AlignVCenter);
 
@@ -296,6 +193,112 @@ public:
         widget->setObjectName(QStringLiteral("widget"));
 
         gridLayout->addWidget(widget, 1, 1, 1, 1);
+
+        widget_4 = new QWidget(centralwidget);
+        widget_4->setObjectName(QStringLiteral("widget_4"));
+        widget_4->setStyleSheet(QLatin1String("border-top-left-radius: 20px;\n"
+"border-top-right-radius:20px;\n"
+"border-radius: 20px; \n"
+"color: white; \n"
+"background-color:  #455774;\n"
+"max-height: 290px; \n"
+"max-width: 300px; "));
+        widget_3 = new QWidget(widget_4);
+        widget_3->setObjectName(QStringLiteral("widget_3"));
+        widget_3->setGeometry(QRect(20, 10, 221, 261));
+        widget_3->setMouseTracking(false);
+        widget_3->setAutoFillBackground(false);
+        widget_3->setStyleSheet(QStringLiteral("background-color:transparent; "));
+        gridLayoutWidget = new QWidget(widget_3);
+        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(6, 40, 209, 221));
+        gridLayout_3 = new QGridLayout(gridLayoutWidget);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        label_15 = new QLabel(gridLayoutWidget);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setStyleSheet(QStringLiteral("background-color: transparent; "));
+        label_15->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_15, 6, 1, 1, 1);
+
+        label_class = new QLabel(gridLayoutWidget);
+        label_class->setObjectName(QStringLiteral("label_class"));
+        label_class->setStyleSheet(QStringLiteral("background-color:transparent;"));
+        label_class->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_class, 6, 2, 1, 1);
+
+        label_server_ip = new QLabel(gridLayoutWidget);
+        label_server_ip->setObjectName(QStringLiteral("label_server_ip"));
+        label_server_ip->setStyleSheet(QStringLiteral("background-color:transparent;"));
+        label_server_ip->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_server_ip, 2, 2, 1, 1);
+
+        label = new QLabel(gridLayoutWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setStyleSheet(QStringLiteral("background-color: transparent;"));
+        label->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label, 2, 1, 1, 1);
+
+        label_team = new QLabel(gridLayoutWidget);
+        label_team->setObjectName(QStringLiteral("label_team"));
+        label_team->setStyleSheet(QStringLiteral("background-color:transparent;"));
+        label_team->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_team, 5, 2, 1, 1);
+
+        label_13 = new QLabel(gridLayoutWidget);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setStyleSheet(QStringLiteral("background-color: transparent !important; "));
+        label_13->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_13, 5, 1, 1, 1);
+
+        label_11 = new QLabel(gridLayoutWidget);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setStyleSheet(QStringLiteral("background-color: transparent; "));
+        label_11->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_11, 3, 1, 1, 1);
+
+        label_map = new QLabel(gridLayoutWidget);
+        label_map->setObjectName(QStringLiteral("label_map"));
+        label_map->setStyleSheet(QStringLiteral("background-color:transparent;"));
+        label_map->setScaledContents(false);
+        label_map->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_map, 4, 2, 1, 1);
+
+        label_steam_id = new QLabel(gridLayoutWidget);
+        label_steam_id->setObjectName(QStringLiteral("label_steam_id"));
+        label_steam_id->setStyleSheet(QStringLiteral("background-color:transparent;"));
+        label_steam_id->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_steam_id, 3, 2, 1, 1);
+
+        label_10 = new QLabel(gridLayoutWidget);
+        label_10->setObjectName(QStringLiteral("label_10"));
+        label_10->setStyleSheet(QStringLiteral("background-color: transparent; "));
+        label_10->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label_10, 4, 1, 1, 1);
+
+        widget_5 = new QWidget(widget_3);
+        widget_5->setObjectName(QStringLiteral("widget_5"));
+        widget_5->setGeometry(QRect(-3, 0, 221, 261));
+        widget_5->setStyleSheet(QStringLiteral("background-color: rgba(0, 0, 0, 0.5);"));
+        label_6 = new QLabel(widget_5);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(10, -10, 211, 61));
+        label_6->setStyleSheet(QLatin1String("background:transparent;\n"
+""));
+        widget_5->raise();
+        gridLayoutWidget->raise();
+
+        gridLayout->addWidget(widget_4, 0, 2, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
@@ -316,9 +319,6 @@ public:
 
         retranslateUi(Main_screen);
 
-        tabWidget->setCurrentIndex(0);
-
-
         QMetaObject::connectSlotsByName(Main_screen);
     } // setupUi
 
@@ -326,38 +326,17 @@ public:
     {
         Main_screen->setWindowTitle(QApplication::translate("Main_screen", "MainWindow", 0));
         actionLogout->setText(QApplication::translate("Main_screen", "Logout", 0));
-        label_3->setText(QApplication::translate("Main_screen", "Map:", 0));
-        label->setText(QApplication::translate("Main_screen", "Steam ID:", 0));
-        label_2->setText(QApplication::translate("Main_screen", "Server IP:", 0));
+        label_15->setText(QApplication::translate("Main_screen", "Class", 0));
+        label_class->setText(QApplication::translate("Main_screen", "[Disconnected]", 0));
+        label_server_ip->setText(QApplication::translate("Main_screen", "TextLabel", 0));
+        label->setText(QApplication::translate("Main_screen", "Server IP", 0));
+        label_team->setText(QApplication::translate("Main_screen", "[Disconnected]", 0));
+        label_13->setText(QApplication::translate("Main_screen", "Team", 0));
+        label_11->setText(QApplication::translate("Main_screen", "Steam ID", 0));
+        label_map->setText(QApplication::translate("Main_screen", "[Disconnected]", 0));
+        label_steam_id->setText(QApplication::translate("Main_screen", "TextLabel", 0));
+        label_10->setText(QApplication::translate("Main_screen", "Map", 0));
         label_6->setText(QApplication::translate("Main_screen", "Game Information", 0));
-        server_ip->setText(QApplication::translate("Main_screen", "TextLabel", 0));
-        steam_id->setText(QApplication::translate("Main_screen", "TextLabel", 0));
-        map->setText(QApplication::translate("Main_screen", "Undefined", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Main_screen", "General Settings", 0));
-        label_5->setText(QApplication::translate("Main_screen", "Sounds", 0));
-        label_4->setText(QApplication::translate("Main_screen", "Events", 0));
-        label_8->setText(QApplication::translate("Main_screen", "Death", 0));
-        label_9->setText(QApplication::translate("Main_screen", "Events", 0));
-        label_7->setText(QApplication::translate("Main_screen", "Kill", 0));
-        comboBox_3->clear();
-        comboBox_3->insertItems(0, QStringList()
-         << QApplication::translate("Main_screen", "Sound 1", 0)
-         << QApplication::translate("Main_screen", "Sound 2", 0)
-         << QApplication::translate("Main_screen", "Sound 3", 0)
-        );
-        comboBox_2->clear();
-        comboBox_2->insertItems(0, QStringList()
-         << QApplication::translate("Main_screen", "Sound 1", 0)
-         << QApplication::translate("Main_screen", "Sound 2", 0)
-         << QApplication::translate("Main_screen", "Sound 3", 0)
-        );
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
-         << QApplication::translate("Main_screen", "Sound 1", 0)
-         << QApplication::translate("Main_screen", "Sound 2", 0)
-        );
-        pushButton->setText(QApplication::translate("Main_screen", "Submit", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Main_screen", "Customization", 0));
         menuLogout->setTitle(QApplication::translate("Main_screen", "Settings", 0));
     } // retranslateUi
 

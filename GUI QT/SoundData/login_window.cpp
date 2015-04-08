@@ -25,7 +25,7 @@ void Login_window::on_pushButton_clicked()
     //main_window is declared(not initialized) inside
     //login_window.h
     QString temp = ui->lineEdit_2->text();
-    serverIP = "tcp://" + temp + ":7633";
+    serverIP = "tcp://104.236.52.206:7633";
     steamID = ui->lineEdit->text();
     qs = ui->lineEdit_3->text();
 

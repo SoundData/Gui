@@ -134,8 +134,8 @@ public:
 
         logInFrame = new QFrame(centralWidget);
         logInFrame->setObjectName(QStringLiteral("logInFrame"));
-        logInFrame->setMinimumSize(QSize(450, 220));
-        logInFrame->setMaximumSize(QSize(450, 225));
+        logInFrame->setMinimumSize(QSize(450, 200));
+        logInFrame->setMaximumSize(QSize(450, 200));
         logInFrame->setLayoutDirection(Qt::LeftToRight);
         logInFrame->setStyleSheet(QStringLiteral(""));
         logInFrame->setFrameShape(QFrame::StyledPanel);
@@ -204,7 +204,11 @@ public:
         Login_window->setWindowTitle(QApplication::translate("Login_window", "Login_window", 0));
         label->setText(QApplication::translate("Login_window", "Steam ID", 0));
         label_2->setText(QApplication::translate("Login_window", "Server IP", 0));
+        lineEdit_2->setText(QApplication::translate("Login_window", "104.236.52.206", 0));
+        lineEdit_2->setPlaceholderText(QApplication::translate("Login_window", "104.236.52.206", 0));
         label_3->setText(QApplication::translate("Login_window", "EventProcessor Executable", 0));
+        lineEdit_3->setText(QApplication::translate("Login_window", "EventProcessor.exe", 0));
+        lineEdit_3->setPlaceholderText(QApplication::translate("Login_window", "EventProcessor.exe", 0));
         pushButton->setText(QApplication::translate("Login_window", "Connect", 0));
     } // retranslateUi
 
