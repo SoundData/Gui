@@ -36,8 +36,8 @@ void Login_window::on_pushButton_clicked()
     else
     {
 
-        main_window = new Main_screen(NULL, qs, serverIP);// creates an instance of main screen
-        main_window->changeText(temp, steamID);
+        main_window = new Main_screen(NULL, qs, serverIP, steamID);// creates an instance of main screen
+        main_window->changeText(temp, steamID, "Unknown", "Unknown", "Unknown");
         main_window->setAttribute(Qt::WA_DeleteOnClose);
 
         main_window->show(); //shows the main screen

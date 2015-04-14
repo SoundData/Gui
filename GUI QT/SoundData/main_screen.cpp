@@ -6,11 +6,13 @@
 #include <QDebug>
 #include <QStringBuilder>
 
-Main_screen::Main_screen(QWidget *parent, QString evProcLoc, QString servAddr) :
+Main_screen::Main_screen(QWidget *parent, QString evProcLoc, QString servAddr, QString steamID) :
     QMainWindow(parent),
     ui(new Ui::Main_screen),
     m_sEvProcessorLoc(evProcLoc),
-    m_sServerAddr(servAddr)
+    m_sServerAddr(servAddr),
+    m_sName(steamID)
+
 {
     ui->setupUi(this);
 
@@ -56,17 +58,54 @@ Main_screen::~Main_screen()
 // has data available on its standard output stream
 void Main_screen::processOutput()
 {
+
+    int randomValue = qrand() % 10;
     // Grab the message from the EventProcessor
     QString msg(m_qpEventProcessorProc->readAllStandardOutput());
-
-    // Write it to the log viewer
+    if(randomValue == 1)
+    {
+        QString msg2 = "gm.info[\"MapName--QTGUI\"]: de_dust2\ngm.info[\"Holygene--class--QTGUI\"]: Scout\ngm.info[\"OtherPlayerName--QTGUI\"]: Heavy\ngm.info[\"Holygene--team--QTGUI\"]: Red\ngm.info[\"christmas ham--team--QTGUI\"]: Blue";
+        msg.append(msg2);
+    }
+    /*
+     * DON'T FORGET TO CHANGE msg2 to msg !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     */
+    if(msg.contains("--QTGUI"))
+    {
+        QString player_class = getDataBetween("class--QTGUI\"]: ","\n",msg);
+        QString player_team = getDataBetween("team--QTGUI\"]: ","\n",msg);
+        //Matt check what needs to be changed for team recognition if anything
+        QString player_map = getDataBetween("MapName--QTGUI\"]: ","\n",msg);
+        //ui->plainTextEdit_EvProcOutput->appendPlainText(player_class);
+        //ui->plainTextEdit_EvProcOutput->appendPlainText(player_team);
+        //ui->plainTextEdit_EvProcOutput->appendPlainText(player_map);
+        changeText(m_sServerAddr, m_sName, player_class, player_map, player_team);
+    }
     ui->plainTextEdit_EvProcOutput->appendPlainText(msg);
 }
 
-void Main_screen::changeText(QString &text, QString &text2)
+QString Main_screen::getDataBetween(QString begin,QString end, QString &source)
 {
-    ui->label_server_ip->setText(text);
-    ui->label_steam_id->setText(text2);
+    int startIndex = source.indexOf(begin)+begin.length();
+    //gets the index after the QTGUI"]: as the start index of new string
+    if(startIndex <= 0)return QString();
+    //error checking on the string
+    int endIndex = source.indexOf(end,startIndex);
+    //gets the string index at the end(specified as \n when passed in) relative to the start of wanted string
+    if(endIndex <= 0)return QString();
+    //error checking on the string
+    return source.mid(startIndex,endIndex - startIndex);
+    //using midpoint of the wanted string and its start and end locations return it
+
+}
+
+void Main_screen::changeText(QString &server_ip, QString &steam_id, QString player_class, QString player_map, QString player_team)
+{
+    ui->label_server_ip->setText(server_ip);
+    ui->label_steam_id->setText(steam_id);
+    ui->label_class->setText(player_class);
+    ui->label_team->setText(player_map);
+    ui->label_map->setText(player_team);
 }
 
 void Main_screen::on_pushButton_clicked()
