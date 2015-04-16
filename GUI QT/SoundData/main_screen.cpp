@@ -27,10 +27,10 @@ Main_screen::Main_screen(QWidget *parent, QString evProcLoc, QString servAddr, Q
 
 
     // Start process and report any errors that occur
-    m_qpEventProcessorProc->start(m_sEvProcessorLoc, QStringList() << servAddr);
+    m_qpEventProcessorProc->start(m_sEvProcessorLoc, QStringList() << servAddr << m_sName);
     if (!m_qpEventProcessorProc->waitForStarted(5000))
     {
-        QString logMsg = "Unable to launch program " % m_sEvProcessorLoc % " with args " % m_sServerAddr;
+        QString logMsg = "Unable to launch program " % m_sEvProcessorLoc % " with args " % m_sServerAddr % " " % m_sName;
         logMsg = logMsg % "\nThe process error was:\n\t" % m_qpEventProcessorProc->errorString();
         ui->plainTextEdit_EvProcOutput->appendPlainText(logMsg);
 
@@ -67,14 +67,14 @@ void Main_screen::processOutput()
     if(msg.contains("--QTGUI"))
     {
         //based on the message set the correct data
-        if(msg.contains("class--QTGUI"))
+        if(msg.contains("[\"" % m_sName % "--class--QTGUI\"]"))
         {
-             player_class = getDataBetween("class--QTGUI\"]: ","\n",msg);
+             player_class = getDataBetween(m_sName % "--class--QTGUI\"]: ","\n",msg);
         }
 
-        if(msg.contains("team--QTGUI"))
+        if(msg.contains("[\"" % m_sName % "--team--QTGUI\"]"))
         {
-             player_team = getDataBetween("team--QTGUI\"]: ","\n",msg);
+             player_team = getDataBetween(m_sName % "--team--QTGUI\"]: ","\n",msg);
         }
 
         if(msg.contains("MapName--QTGUI"))
