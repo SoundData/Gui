@@ -25,6 +25,7 @@ Main_screen::Main_screen(QWidget *parent, QString evProcLoc, QString servAddr, Q
     // http://www.qtcentre.org/threads/47538-QProcess-read-from-stdout-lively
     connect(m_qpEventProcessorProc, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
 
+    connect(m_qpEventProcessorProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(restartProcess(int, QProcess::ExitStatus)));
 
     // Start process and report any errors that occur
     m_qpEventProcessorProc->start(m_sEvProcessorLoc, QStringList() << servAddr << m_sName);
@@ -85,6 +86,22 @@ void Main_screen::processOutput()
         changeText(m_sServerAddr, m_sName, player_class, player_map, player_team);
     }
     ui->plainTextEdit_EvProcOutput->appendPlainText(msg);
+}
+
+void Main_screen::restartProcess(int exitCode, QProcess::ExitStatus existStatus)
+{
+    // Start process and report any errors that occur
+    m_qpEventProcessorProc->start(m_sEvProcessorLoc, QStringList() << m_sServerAddr << m_sName);
+    if (!m_qpEventProcessorProc->waitForStarted(5000))
+    {
+        QString logMsg = "Unable to launch program " % m_sEvProcessorLoc % " with args " % m_sServerAddr % " " % m_sName;
+        logMsg = logMsg % "\nThe process error was:\n\t" % m_qpEventProcessorProc->errorString();
+        ui->plainTextEdit_EvProcOutput->appendPlainText(logMsg);
+
+        // delete and set the pointer to NULL so we don't try to free it again later
+        delete m_qpEventProcessorProc;
+        m_qpEventProcessorProc = NULL;
+    }
 }
 
 QString Main_screen::getDataBetween(QString begin,QString end, QString &source)

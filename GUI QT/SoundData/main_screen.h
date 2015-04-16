@@ -26,6 +26,7 @@ private slots:
     void on_pushButton_clicked();
     void on_actionLogout_triggered();
     void processOutput();
+    void restartProcess(int exitCode, QProcess::ExitStatus es);
 
 private:
     Ui::Main_screen *ui;
