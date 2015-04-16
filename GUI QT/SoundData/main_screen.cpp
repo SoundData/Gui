@@ -58,27 +58,30 @@ Main_screen::~Main_screen()
 // has data available on its standard output stream
 void Main_screen::processOutput()
 {
+    QString player_class, player_team, player_map;
 
-    int randomValue = qrand() % 10;
+
     // Grab the message from the EventProcessor
     QString msg(m_qpEventProcessorProc->readAllStandardOutput());
-    if(randomValue == 1)
-    {
-        QString msg2 = "gm.info[\"MapName--QTGUI\"]: de_dust2\ngm.info[\"Holygene--class--QTGUI\"]: Scout\ngm.info[\"OtherPlayerName--QTGUI\"]: Heavy\ngm.info[\"Holygene--team--QTGUI\"]: Red\ngm.info[\"christmas ham--team--QTGUI\"]: Blue";
-        msg.append(msg2);
-    }
-    /*
-     * DON'T FORGET TO CHANGE msg2 to msg !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
+
     if(msg.contains("--QTGUI"))
     {
-        QString player_class = getDataBetween("class--QTGUI\"]: ","\n",msg);
-        QString player_team = getDataBetween("team--QTGUI\"]: ","\n",msg);
-        //Matt check what needs to be changed for team recognition if anything
-        QString player_map = getDataBetween("MapName--QTGUI\"]: ","\n",msg);
-        //ui->plainTextEdit_EvProcOutput->appendPlainText(player_class);
-        //ui->plainTextEdit_EvProcOutput->appendPlainText(player_team);
-        //ui->plainTextEdit_EvProcOutput->appendPlainText(player_map);
+        //based on the message set the correct data
+        if(msg.contains("class--QTGUI"))
+        {
+             player_class = getDataBetween("class--QTGUI\"]: ","\n",msg);
+        }
+
+        if(msg.contains("team--QTGUI"))
+        {
+             player_team = getDataBetween("team--QTGUI\"]: ","\n",msg);
+        }
+
+        if(msg.contains("MapName--QTGUI"))
+        {
+             player_map = getDataBetween("MapName--QTGUI\"]: ","\n",msg);
+        }
+
         changeText(m_sServerAddr, m_sName, player_class, player_map, player_team);
     }
     ui->plainTextEdit_EvProcOutput->appendPlainText(msg);
@@ -104,8 +107,8 @@ void Main_screen::changeText(QString &server_ip, QString &steam_id, QString play
     ui->label_server_ip->setText(server_ip);
     ui->label_steam_id->setText(steam_id);
     ui->label_class->setText(player_class);
-    ui->label_team->setText(player_map);
-    ui->label_map->setText(player_team);
+    ui->label_team->setText(player_team);
+    ui->label_map->setText(player_map);
 }
 
 void Main_screen::on_pushButton_clicked()
